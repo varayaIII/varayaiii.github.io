@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AuthorCard from '../components/AuthorCard.astro';
+---
+
+<BaseLayout title="About Me">
+  <h1 class="text-3xl font-bold tracking-tight text-white">Sobre mí</h1>
+
+  <div class="mt-8">
+    <AuthorCard variant="full" />
+  </div>
+
+  <div class="prose prose-invert prose-slate mt-10 max-w-none prose-headings:font-semibold prose-a:text-teal-400">
+    <!-- TODO: reemplaza este contenido de ejemplo por tu historia real cuando la tengamos redactada -->
+    <h2>Mi camino hasta acá</h2>
+    <p>
+      Contenido pendiente: aquí va tu historia de NOC/VoIP/SIP hacia DevOps,
+      con hitos concretos (certificaciones, proyectos, aprendizajes clave).
+    </p>
+
+    <h2>Por qué DevOps</h2>
+    <p>Contenido pendiente: qué te conecta la experiencia en redes/telco con automatización e infraestructura como código.</p>
+
+    <h2>Qué estoy aprendiendo ahora</h2>
+    <p>Contenido pendiente: stack actual en foco (Terraform, Ansible, Docker, AWS, etc.) y hacia dónde vas.</p>
+  </div>
+</BaseLayout>

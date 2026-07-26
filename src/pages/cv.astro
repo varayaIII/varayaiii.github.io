@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="CV">
+  <div class="flex items-center justify-between">
+    <h1 class="text-3xl font-bold tracking-tight text-white">Curriculum Vitae</h1>
+    <!-- Coloca tu CV real en /public/cv.pdf y este botón lo sirve directo -->
+    <a href="/cv.pdf" download
+       class="rounded-md bg-teal-500 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-teal-400 transition-colors">
+      Descargar PDF
+    </a>
+  </div>
+
+  <div class="prose prose-invert prose-slate mt-10 max-w-none prose-headings:font-semibold">
+    <!-- TODO: reemplazar con tu experiencia real -->
+    <h2>Experiencia</h2>
+    <p>Contenido pendiente: cargos, empresas, fechas y logros concretos en NOC/VoIP/Telco.</p>
+
+    <h2>Formación</h2>
+    <p>Contenido pendiente: estudios formales y certificaciones.</p>
+
+    <h2>Certificaciones en curso</h2>
+    <p>Contenido pendiente: ej. AWS Cloud Practitioner, Terraform Associate, etc.</p>
+  </div>
+</BaseLayout>
