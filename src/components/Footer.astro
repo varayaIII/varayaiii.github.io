@@ -1,13 +1,28 @@
 ---
+import Icon from './Icon.astro';
+
 const year = new Date().getFullYear();
+
+const social = {
+  github: 'https://github.com/TU_USUARIO',
+  linkedin: 'https://linkedin.com/in/TU_USUARIO',
+  email: 'mailto:contacto@varaya.dev',
+};
 ---
 
-<footer class="border-t border-slate-800">
-  <div class="mx-auto max-w-4xl px-6 py-8 text-sm text-slate-500 flex flex-wrap items-center justify-between gap-3">
-    <p>© {year} Victor Araya. Construido con Astro, desplegado con GitHub Actions.</p>
+<footer class="border-t border-border">
+  <div class="mx-auto flex max-w-4xl items-center justify-between gap-3 px-6 py-8 text-sm text-muted">
+    <p>&copy; {year}</p>
     <div class="flex gap-4">
-      <a href="https://github.com/TU_USUARIO" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">GitHub</a>
-      <a href="https://linkedin.com/in/TU_USUARIO" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">LinkedIn</a>
+      <a href={social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="transition-colors hover:text-accent-cyan">
+        <Icon name="github" class="h-4 w-4" />
+      </a>
+      <a href={social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="transition-colors hover:text-accent-cyan">
+        <Icon name="linkedin" class="h-4 w-4" />
+      </a>
+      <a href={social.email} aria-label="Email" class="transition-colors hover:text-accent-cyan">
+        <Icon name="mail" class="h-4 w-4" />
+      </a>
     </div>
   </div>
 </footer>

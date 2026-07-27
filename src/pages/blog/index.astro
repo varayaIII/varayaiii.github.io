@@ -8,9 +8,9 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
 ---
 
 <BaseLayout title="Blog">
-  <h1 class="text-3xl font-bold tracking-tight text-white">Blog</h1>
-  <p class="mt-4 max-w-2xl text-slate-400">
-    Laboratorios, guías y notas técnicas sobre el camino de telco hacia DevOps.
+  <h1 class="font-display text-3xl font-semibold tracking-tight text-white">Blog</h1>
+  <p class="mt-4 max-w-2xl text-muted">
+    Labs, guides, and technical notes on the road from telecom to DevOps.
   </p>
 
   <div class="mt-10 grid gap-4">
@@ -26,6 +26,6 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
   </div>
 
   {posts.length === 0 && (
-    <p class="mt-10 text-slate-500">Aún no hay publicaciones. Vuelve pronto.</p>
+    <p class="mt-10 text-muted">No posts yet. Check back soon.</p>
   )}
 </BaseLayout>

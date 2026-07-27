@@ -1,16 +1,18 @@
 ---
+import Icon from './Icon.astro';
+
 interface Props {
   variant?: 'full' | 'compact';
 }
 
 const { variant = 'full' } = Astro.props;
 
-// Centraliza tus datos acá. Cuando los tengas definitivos, edita solo este bloque
-// y se actualiza en todo el sitio (About + pie de cada post).
+// Centralize your data here. Once finalized, edit only this block
+// and it updates across the whole site (About + footer of each post).
 const author = {
   name: 'Victor Araya',
-  role: 'Ingeniero en Telecomunicaciones · en transición a DevOps',
-  bio: 'Desde el NOC hacia la nube: años gestionando VoIP, SIP y redes en producción, ahora aplicando esa misma disciplina de confiabilidad a la automatización y la infraestructura como código.',
+  role: 'VoIP Engineer · building toward DevOps and Cloud',
+  bio: 'VoIP Engineer with a solid background in NOC and production networks — SIP, RTP, SBCs, Asterisk. Now adding automation and infrastructure as code to that same reliability mindset.',
   github: 'https://github.com/TU_USUARIO',
   linkedin: 'https://linkedin.com/in/TU_USUARIO',
   email: 'contacto@varaya.dev',
@@ -18,25 +20,31 @@ const author = {
 ---
 
 {variant === 'full' ? (
-  <div class="flex flex-col gap-6 rounded-xl border border-slate-800 bg-slate-900/50 p-8 sm:flex-row sm:items-start">
-    <div class="h-24 w-24 shrink-0 rounded-full bg-gradient-to-br from-teal-500 to-slate-700"></div>
+  <div class="flex flex-col gap-6 rounded-xl border border-border bg-surface p-8 sm:flex-row sm:items-start">
+    <div class="h-24 w-24 shrink-0 rounded-full bg-gradient-to-br from-accent to-accent-cyan"></div>
     <div>
-      <h2 class="text-xl font-semibold text-white">{author.name}</h2>
-      <p class="mt-1 text-sm font-medium text-teal-400">{author.role}</p>
-      <p class="mt-4 text-slate-300 leading-relaxed">{author.bio}</p>
-      <div class="mt-5 flex gap-4 text-sm">
-        <a href={author.github} target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">GitHub</a>
-        <a href={author.linkedin} target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">LinkedIn</a>
-        <a href={`mailto:${author.email}`} class="text-slate-400 hover:text-white transition-colors">Email</a>
+      <h2 class="font-display text-xl font-semibold text-white">{author.name}</h2>
+      <p class="mt-1 text-sm font-medium text-accent-cyan">{author.role}</p>
+      <p class="mt-4 leading-relaxed text-text">{author.bio}</p>
+      <div class="mt-5 flex gap-4">
+        <a href={author.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-muted transition-colors hover:text-accent-cyan">
+          <Icon name="github" class="h-5 w-5" />
+        </a>
+        <a href={author.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-muted transition-colors hover:text-accent-cyan">
+          <Icon name="linkedin" class="h-5 w-5" />
+        </a>
+        <a href={`mailto:${author.email}`} aria-label="Email" class="text-muted transition-colors hover:text-accent-cyan">
+          <Icon name="mail" class="h-5 w-5" />
+        </a>
       </div>
     </div>
   </div>
 ) : (
   <div class="flex items-center gap-4">
-    <div class="h-12 w-12 shrink-0 rounded-full bg-gradient-to-br from-teal-500 to-slate-700"></div>
+    <div class="h-12 w-12 shrink-0 rounded-full bg-gradient-to-br from-accent to-accent-cyan"></div>
     <div>
-      <p class="text-sm font-medium text-white">Escrito por {author.name}</p>
-      <p class="text-xs text-slate-400">{author.role}</p>
+      <p class="text-sm font-medium text-white">Written by {author.name}</p>
+      <p class="text-xs text-muted">{author.role}</p>
     </div>
   </div>
 )}

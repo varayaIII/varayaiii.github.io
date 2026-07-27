@@ -8,30 +8,30 @@ interface Props {
   stack: string[];
   repoUrl?: string;
   demoUrl?: string;
-  status: 'completado' | 'en progreso' | 'planeado';
+  status: 'completed' | 'in progress' | 'planned';
 }
 
 const { title, description, tags, stack, repoUrl, demoUrl, status } = Astro.props;
 
 const statusStyles: Record<string, string> = {
-  completado: 'bg-emerald-500/10 text-emerald-400',
-  'en progreso': 'bg-amber-500/10 text-amber-400',
-  planeado: 'bg-slate-500/10 text-slate-400',
+  completed: 'bg-emerald-500/10 text-emerald-400',
+  'in progress': 'bg-amber-500/10 text-amber-400',
+  planned: 'bg-surface text-muted',
 };
 ---
 
 <BaseLayout title={title} description={description}>
   <article>
-    <header class="mb-10 border-b border-slate-800 pb-8">
+    <header class="mb-10 border-b border-border pb-8">
       <span class={`inline-block rounded-full px-3 py-1 text-xs font-medium ${statusStyles[status]}`}>
         {status}
       </span>
-      <h1 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">{title}</h1>
-      <p class="mt-3 text-lg text-slate-400">{description}</p>
+      <h1 class="mt-4 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h1>
+      <p class="mt-3 text-lg text-muted">{description}</p>
 
       <div class="mt-6 flex flex-wrap gap-2">
         {stack.map((tech) => (
-          <span class="rounded-md border border-slate-700 px-2.5 py-1 text-xs font-mono text-slate-300">
+          <span class="rounded-md border border-border px-2.5 py-1 text-xs font-mono text-text">
             {tech}
           </span>
         ))}
@@ -40,20 +40,20 @@ const statusStyles: Record<string, string> = {
       <div class="mt-6 flex gap-4">
         {repoUrl && (
           <a href={repoUrl} target="_blank" rel="noopener noreferrer"
-             class="rounded-md bg-slate-800 px-4 py-2 text-sm font-medium text-white hover:bg-slate-700 transition-colors">
-            Ver repositorio →
+             class="rounded-md bg-surface px-4 py-2 text-sm font-medium text-text hover:bg-border transition-colors">
+            View repository →
           </a>
         )}
         {demoUrl && (
           <a href={demoUrl} target="_blank" rel="noopener noreferrer"
-             class="rounded-md border border-teal-500 px-4 py-2 text-sm font-medium text-teal-400 hover:bg-teal-500/10 transition-colors">
-            Ver demo →
+             class="rounded-md border border-accent px-4 py-2 text-sm font-medium text-accent-cyan hover:bg-accent/10 transition-colors">
+            View demo →
           </a>
         )}
       </div>
     </header>
 
-    <div class="prose prose-invert prose-slate max-w-none prose-headings:font-semibold prose-a:text-teal-400 prose-code:text-teal-300">
+    <div class="prose prose-invert max-w-none prose-headings:font-semibold prose-a:text-accent-cyan prose-code:text-accent-cyan">
       <slot />
     </div>
   </article>

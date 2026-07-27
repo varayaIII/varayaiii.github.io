@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 // Esquema para posts del blog.
-// Si un post .md no cumple esto, Astro falla el build y te avisa qué falta.
+// If a .md post doesn't match this, Astro fails the build and tells you what's missing.
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
@@ -24,11 +24,11 @@ const projects = defineCollection({
     description: z.string().max(200),
     pubDate: z.coerce.date(),
     tags: z.array(z.string()).default([]),
-    stack: z.array(z.string()).default([]), // tecnologías usadas
+    stack: z.array(z.string()).default([]), // technologies used
     repoUrl: z.string().url().optional(),
     demoUrl: z.string().url().optional(),
     featured: z.boolean().default(false), // para destacar en Home
-    status: z.enum(['completado', 'en progreso', 'planeado']).default('completado'),
+    status: z.enum(['completed', 'in progress', 'planned']).default('completed'),
   }),
 });
 

@@ -8,11 +8,11 @@ const links = [
 ];
 ---
 
-<BaseLayout title="Contacto">
-  <h1 class="text-3xl font-bold tracking-tight text-white">Hablemos</h1>
-  <p class="mt-4 max-w-2xl text-slate-400">
-    Estoy abierto a conversar sobre oportunidades en DevOps, automatización o cloud,
-    o simplemente a intercambiar ideas sobre infraestructura y redes.
+<BaseLayout title="Contact">
+  <h1 class="font-display text-3xl font-semibold tracking-tight text-white">Let's talk</h1>
+  <p class="mt-4 max-w-2xl text-muted">
+    I'm open to conversations about DevOps, automation, or cloud opportunities,
+    or simply exchanging ideas about infrastructure and networking.
   </p>
 
   <div class="mt-10 flex flex-col gap-3">
@@ -21,10 +21,10 @@ const links = [
         href={link.href}
         target={link.href.startsWith('http') ? '_blank' : undefined}
         rel="noopener noreferrer"
-        class="flex items-center justify-between rounded-lg border border-slate-800 px-5 py-4 transition-colors hover:border-teal-500/50 hover:bg-slate-900/50"
+        class="flex items-center justify-between rounded-lg border border-border px-5 py-4 transition-colors hover:border-accent/50 hover:bg-surface"
       >
         <span class="font-medium text-white">{link.label}</span>
-        <span class="text-sm text-slate-400">{link.value}</span>
+        <span class="text-sm text-muted">{link.value}</span>
       </a>
     ))}
   </div>

@@ -1,54 +1,54 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Organizado por dominio, no como lista plana — así se lee tu perfil real:
-// base sólida en redes/telco + stack DevOps en construcción activa.
+// Grouped by domain, not a flat list — this reflects your real profile:
+// solid networking/telecom foundation + a DevOps stack actively under construction.
 const skillGroups = [
   {
-    domain: 'Redes & Telecomunicaciones',
-    level: 'Experiencia sólida',
-    items: ['VoIP', 'SIP / RTP', 'Asterisk', 'SBCs', 'SMS / Mensajería', 'NOC / Monitoreo 24x7', 'Troubleshooting de red'],
+    domain: 'Networking & Telecom',
+    level: 'Solid experience',
+    items: ['VoIP', 'SIP / RTP', 'Asterisk', 'SBCs', 'SMS / Messaging', 'NOC / 24x7 Monitoring', 'Network troubleshooting'],
   },
   {
-    domain: 'Sistemas & Linux',
-    level: 'Experiencia sólida',
-    items: ['Administración Linux', 'Bash scripting', 'MySQL', 'Gestión de servicios', 'Monitoreo de infraestructura'],
+    domain: 'Systems & Linux',
+    level: 'Solid experience',
+    items: ['Linux administration', 'Bash scripting', 'MySQL', 'Service management', 'Infrastructure monitoring'],
   },
   {
-    domain: 'DevOps & Automatización',
-    level: 'En desarrollo activo',
+    domain: 'DevOps & Automation',
+    level: 'Actively learning',
     items: ['Docker', 'Terraform', 'Ansible', 'CI/CD (GitHub Actions)', 'Git / GitHub / GitLab'],
   },
   {
     domain: 'Cloud',
-    level: 'En desarrollo activo',
-    items: ['AWS (EC2, S3, IAM, VPC)', 'Fundamentos de arquitectura cloud'],
+    level: 'Actively learning',
+    items: ['AWS (EC2, S3, IAM, VPC)', 'Cloud architecture fundamentals'],
   },
   {
-    domain: 'Scripting & Herramientas',
-    level: 'En desarrollo activo',
-    items: ['Python', 'Observabilidad (Prometheus/Grafana)', 'Markdown / Documentación técnica'],
+    domain: 'Scripting & Tools',
+    level: 'Actively learning',
+    items: ['Python', 'Observability (Prometheus/Grafana)', 'Markdown / Technical documentation'],
   },
 ];
 ---
 
 <BaseLayout title="Skills">
-  <h1 class="text-3xl font-bold tracking-tight text-white">Skills</h1>
-  <p class="mt-4 max-w-2xl text-slate-400">
-    Mi base está en redes y telecomunicaciones; mi foco actual es DevOps y automatización.
-    Esta página refleja ambas partes de mi perfil, sin inflar lo que todavía estoy aprendiendo.
+  <h1 class="font-display text-3xl font-semibold tracking-tight text-white">Skills</h1>
+  <p class="mt-4 max-w-2xl text-muted">
+    My foundation is in networking and telecom; my current focus is DevOps and automation.
+    This page reflects both sides of my profile, without inflating what I'm still learning.
   </p>
 
   <div class="mt-10 grid gap-6 sm:grid-cols-2">
     {skillGroups.map((group) => (
-      <div class="rounded-lg border border-slate-800 p-5">
+      <div class="rounded-lg border border-border p-5">
         <div class="flex items-center justify-between">
-          <h2 class="font-semibold text-white">{group.domain}</h2>
-          <span class="text-xs text-teal-400">{group.level}</span>
+          <h2 class="font-display font-semibold text-white">{group.domain}</h2>
+          <span class="text-xs text-accent-cyan">{group.level}</span>
         </div>
         <ul class="mt-4 flex flex-wrap gap-2">
           {group.items.map((item) => (
-            <li class="rounded-md bg-slate-800 px-2.5 py-1 text-xs text-slate-300">{item}</li>
+            <li class="rounded-md bg-surface px-2.5 py-1 text-xs text-text">{item}</li>
           ))}
         </ul>
       </div>

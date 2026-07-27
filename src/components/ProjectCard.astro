@@ -3,28 +3,28 @@ interface Props {
   title: string;
   description: string;
   stack: string[];
-  status: 'completado' | 'en progreso' | 'planeado';
+  status: 'completed' | 'in progress' | 'planned';
   slug: string;
 }
 
 const { title, description, stack, status, slug } = Astro.props;
 
 const statusStyles: Record<string, string> = {
-  completado: 'bg-emerald-500/10 text-emerald-400',
-  'en progreso': 'bg-amber-500/10 text-amber-400',
-  planeado: 'bg-slate-500/10 text-slate-400',
+  completed: 'bg-emerald-500/10 text-emerald-400',
+  'in progress': 'bg-amber-500/10 text-amber-400',
+  planned: 'bg-surface text-muted',
 };
 ---
 
-<a href={`/projects/${slug}`} class="group block rounded-lg border border-slate-800 p-5 transition-colors hover:border-teal-500/50 hover:bg-slate-900/50">
+<a href={`/projects/${slug}`} class="group block rounded-lg border border-border p-5 transition-colors hover:border-accent/50 hover:bg-surface">
   <div class="flex items-start justify-between gap-3">
-    <h3 class="text-lg font-semibold text-white group-hover:text-teal-400 transition-colors">{title}</h3>
+    <h3 class="font-display text-lg font-semibold text-white group-hover:text-accent-cyan transition-colors">{title}</h3>
     <span class={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${statusStyles[status]}`}>{status}</span>
   </div>
-  <p class="mt-2 text-sm text-slate-400 leading-relaxed">{description}</p>
+  <p class="mt-2 text-sm text-muted leading-relaxed">{description}</p>
   <div class="mt-4 flex flex-wrap gap-2">
     {stack.map((tech) => (
-      <span class="rounded-md border border-slate-700 px-2 py-0.5 text-xs font-mono text-slate-400">{tech}</span>
+      <span class="rounded-md border border-border px-2 py-0.5 text-xs font-mono text-muted">{tech}</span>
     ))}
   </div>
 </a>

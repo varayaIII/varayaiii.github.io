@@ -1,0 +1,70 @@
+---
+interface Hop {
+  host: string;
+  label: string;
+  current?: boolean;
+}
+
+const hops: Hop[] = [
+  { host: 'noc.local', label: 'Start: NOC support and monitoring' },
+  { host: 'voip.engineer', label: 'VoIP Engineer — SIP · RTP · SBCs · Asterisk', current: true },
+  { host: 'automation.hop', label: 'Ansible · Terraform · Docker — actively learning' },
+  { host: 'cloud.varaya.dev', label: '* * *  (in transit)' },
+];
+---
+
+<div class="traceroute-card overflow-hidden rounded-xl border border-border bg-surface shadow-[0_0_60px_-15px_var(--color-accent)]">
+  <div class="flex items-center gap-1.5 border-b border-border px-4 py-3">
+    <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f56]"></span>
+    <span class="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]"></span>
+    <span class="h-2.5 w-2.5 rounded-full bg-[#27c93f]"></span>
+    <span class="ml-3 font-mono text-xs text-muted">zsh</span>
+  </div>
+  <div class="p-5 font-mono text-sm leading-relaxed sm:p-6 sm:text-base">
+    <p class="hop text-text" style="--d: 0">
+      <span class="text-accent-cyan">$</span> traceroute victor.dev
+    </p>
+    <p class="hop mt-3 text-muted" style="--d: 1">&nbsp;</p>
+    {hops.map((hop, i) => (
+      <p class={`hop text-muted ${hop.current ? 'rounded-md bg-accent/5 px-2 py-1 -mx-2' : ''}`} style={`--d: ${i + 2}`}>
+        <span class={hop.current ? 'text-accent-cyan' : 'text-accent'}>{i + 1}</span>
+        {'  '}
+        <span class="text-text">{hop.host}</span>
+        {hop.current && (
+          <span class="ml-2 inline-flex items-center gap-1 rounded-full bg-accent-cyan/10 px-2 py-0.5 text-xs text-accent-cyan align-middle">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent-cyan"></span>current
+          </span>
+        )}
+        <br class="sm:hidden" />
+        <span class="hidden text-muted sm:inline">{'  '.repeat(Math.max(1, 18 - hop.host.length))}</span>
+        <span class="text-muted">{hop.label}</span>
+      </p>
+    ))}
+  </div>
+</div>
+
+<style>
+  .hop {
+    opacity: 0;
+    animation: reveal 0.5s ease-out forwards;
+    animation-delay: calc(var(--d) * 220ms);
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hop {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>

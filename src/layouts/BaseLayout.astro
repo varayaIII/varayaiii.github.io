@@ -10,12 +10,12 @@ interface Props {
 
 const {
   title,
-  description = 'Victor Araya — Ingeniero en Telecomunicaciones en transición a DevOps. Portafolio, laboratorios y notas técnicas sobre automatización, cloud e infraestructura.',
+  description = 'Victor Araya — VoIP Engineer building toward DevOps. Portfolio, labs, and technical notes on automation, cloud, and infrastructure.',
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,7 +24,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title} · Victor Araya</title>
   </head>
-  <body class="bg-slate-950 text-slate-200 antialiased">
+  <body class="bg-bg text-text font-sans antialiased">
     <Header />
     <main class="mx-auto max-w-4xl px-6 py-12">
       <slot />
