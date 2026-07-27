@@ -13,7 +13,7 @@ const hops: Hop[] = [
 ];
 ---
 
-<div class="traceroute-card overflow-hidden rounded-xl border border-border bg-surface shadow-[0_0_60px_-15px_var(--color-accent)]">
+<div class="traceroute-card overflow-hidden rounded-xl border border-border bg-surface shadow-[0_20px_50px_-30px_var(--color-accent)]">
   <div class="flex items-center gap-1.5 border-b border-border px-4 py-3">
     <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f56]"></span>
     <span class="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]"></span>
@@ -26,12 +26,12 @@ const hops: Hop[] = [
     </p>
     <p class="hop mt-3 text-muted" style="--d: 1">&nbsp;</p>
     {hops.map((hop, i) => (
-      <p class={`hop text-muted ${hop.current ? 'rounded-md bg-accent/5 px-2 py-1 -mx-2' : ''}`} style={`--d: ${i + 2}`}>
+      <p class="hop text-muted" style={`--d: ${i + 2}`}>
         <span class={hop.current ? 'text-accent-cyan' : 'text-accent'}>{i + 1}</span>
         {'  '}
-        <span class="text-text">{hop.host}</span>
+        <span class={hop.current ? 'font-medium text-text' : 'text-text'}>{hop.host}</span>
         {hop.current && (
-          <span class="ml-2 inline-flex items-center gap-1 rounded-full bg-accent-cyan/10 px-2 py-0.5 text-xs text-accent-cyan align-middle">
+          <span class="ml-2 inline-flex items-center gap-1 rounded-full border border-accent-cyan/30 bg-accent-cyan/10 px-2 py-0.5 align-middle text-xs text-accent-cyan">
             <span class="h-1.5 w-1.5 rounded-full bg-accent-cyan"></span>current
           </span>
         )}

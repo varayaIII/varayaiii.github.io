@@ -1,26 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Checks at build time whether a real CV file was added — the button only
+// appears once public/cv.pdf actually exists, so it can never 404.
+const cvExists = fs.existsSync(path.join(process.cwd(), 'public/cv.pdf'));
 ---
 
 <BaseLayout title="CV">
-  <div class="flex items-center justify-between">
+  <div class="flex flex-wrap items-center justify-between gap-4">
     <h1 class="font-display text-3xl font-semibold tracking-tight text-white">Curriculum Vitae</h1>
-    <!-- Put your real CV at /public/cv.pdf and this button serves it directly -->
-    <a href="/cv.pdf" download
-       class="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-bg hover:bg-accent-cyan transition-colors">
-      Download PDF
-    </a>
+    {cvExists && (
+      <a href="/cv.pdf" download
+         class="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-bg hover:bg-accent-cyan transition-colors">
+        Download PDF
+      </a>
+    )}
   </div>
 
-  <div class="prose prose-invert mt-10 max-w-none prose-headings:font-semibold">
-    <!-- TODO: replace with your real experience -->
-    <h2>Experience</h2>
-    <p>Content pending: roles, companies, dates, and concrete achievements in NOC/VoIP/Telecom.</p>
-
-    <h2>Education</h2>
-    <p>Content pending: formal education and certifications.</p>
-
-    <h2>Certifications in progress</h2>
-    <p>Content pending: e.g. AWS Cloud Practitioner, Terraform Associate, etc.</p>
+  <div class="mt-10 rounded-lg border border-dashed border-border p-6 text-center text-muted">
+    <p>
+      My detailed experience and education are coming soon.
+      Want the full picture right now? <a href="/contact" class="text-accent-cyan hover:underline">Get in touch</a>.
+    </p>
   </div>
 </BaseLayout>
